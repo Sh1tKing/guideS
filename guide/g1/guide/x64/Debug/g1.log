@@ -1,0 +1,8 @@
+﻿  start.cpp
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(13,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(98,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+  g1.vcxproj -> E:\project_file\景区导游系统\guide\g1\x64\Debug\guide.exe
