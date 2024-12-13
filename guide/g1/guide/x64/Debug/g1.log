@@ -2,6 +2,18 @@
 E:\project_file\景区导游系统\guide\g1\file_operate.cpp(13,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,42): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,36): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,24): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
 E:\project_file\景区导游系统\guide\g1\file_operate.cpp(98,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   

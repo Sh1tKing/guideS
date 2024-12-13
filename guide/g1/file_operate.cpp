@@ -23,17 +23,17 @@ void csv_read() {
 		string line;
 		vector<string> words;
 		string word;
-		getline(csv_data, line);
 		istringstream sin;
 		while (getline(csv_data, line))
 		{
 			words.clear();
 			sin.clear();
 			sin.str(line);
-			float tmp1 = 0.0;
-			int tmp2 = 0;
-			float tmp3 = 0.0;
-			int tmp4 = 0;
+			int tmp1 = 0;
+			float tmp2 = 0.0;
+			int tmp3 = 0;
+			float tmp4 = 0.0;
+			int tmp5 = 0;
 			while (getline(sin, word, ','))
 			{
 				words.push_back(word);
@@ -99,20 +99,30 @@ bool csv_add(string name, float price, int visit_time, float distance, int prese
 		return true;
 	}
 }
-bool csv_delete(string name) {
-	for (auto i = myscene.begin(); i!=myscene.end(); i++) {
-		if (i->GetName() == name) {
-			myscene.erase(i);
-			return true;
-		}
+bool csv_delete(int id) {
+	if (id > myscene.size()) return false;
+	auto i = myscene.begin();
+	while (id > 0) {
+		id--;
+		i++;
 	}
-	return false;
+	myscene.erase(i);
+	csv_writeall();
+	return true;
 }
-bool csv_modify(string name) {
-	for (auto i = myscene.begin(); i != myscene.end(); i++) {
-		if (i->GetName() == name) {
-			
-		}
+bool csv_modify(int id,string name,float price,int visit_time,float distance,int present_num,string open_time) {
+	if (id > myscene.size()) return false;
+	auto i = myscene.begin();
+	while (id > 0) {
+		id--;
+		i++;
 	}
-	return false;
+	i->SetName(name);
+	i->SetPrice(price);
+	i->Setvisit_time(visit_time);
+	i->SetDistance(distance);
+	i->SetPresent_num(present_num);
+	i->SetOpen_time(open_time);
+	csv_writeall();
+	return true;
 }
