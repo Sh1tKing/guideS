@@ -1,20 +1,29 @@
 ﻿  start.cpp
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(13,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(13,16): warning C4091: “typedef ”: 没有声明变量时忽略“each_site”的左侧
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,42): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(155,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,36): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(155,37): warning C4101: “m”: 未引用的局部变量
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(14,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(49,24): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(50,42): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\file_operate.cpp(98,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(50,36): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(50,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(50,24): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\file_operate.cpp(136,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
   g1.vcxproj -> E:\project_file\景区导游系统\guide\g1\x64\Debug\guide.exe

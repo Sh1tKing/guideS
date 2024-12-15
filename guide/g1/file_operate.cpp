@@ -6,13 +6,14 @@
 #include <sstream>
 #include "menu.h"
 #include<iomanip>
-#define FILE_PATH "data\\1.csv"
+#define FILE_PATH1 "data\\1.csv"
+#define FILE_PATH2 "data\\1t.csv"
 #define MAX_NUM 100
 using namespace std;
 vector<scene> myscene;
 int myscene_size = myscene.size();
-void csv_read() {
-	string file_name = FILE_PATH;
+void csv_read1() {
+	string file_name = FILE_PATH1;
 	ifstream csv_data(file_name, ios::in);
 	if (!csv_data.is_open())
 	{
@@ -53,8 +54,45 @@ void csv_read() {
 	}
 
 }
+vector<each_site> csv_read2() {
+	string file_name = FILE_PATH2;
+	ifstream csv_data(file_name, ios::in);
+	vector<each_site> data;
+	if (!csv_data.is_open())
+	{
+		printf("Error: opening file fail\n");
+		exit(1);
+	}
+	else {
+		string line;
+		vector<string> words;
+		string word;
+		istringstream sin;
+		while (getline(csv_data, line))
+		{
+			words.clear();
+			sin.clear();
+			sin.str(line);
+			bool tmp1 = 0;
+			while (getline(sin, word, ','))
+			{
+				words.push_back(word);
+			}
+			istringstream Tmp1(words[1]);
+			Tmp1 >> tmp1;
+			each_site tmp;
+			tmp.distance = 0;
+			tmp.name = words[0];
+			tmp.toilet = tmp1;
+			data.push_back(tmp);
+		}
+		csv_data.close();
+	}
+	return data;
+
+}
 bool csv_writeall() {
-	string file_name = FILE_PATH;
+	string file_name = FILE_PATH1;
 	ifstream file(file_name);
 	if (!file.is_open()) {
 		cout << "File does not exist!" << endl;
@@ -76,7 +114,7 @@ bool csv_writeall() {
 	}
 }
 bool csv_add(string name, float price, int visit_time, float distance, int present_num, string open_time) {
-	string file_name = FILE_PATH;
+	string file_name = FILE_PATH1;
 	ifstream file(file_name);
 	if (!file.is_open()) {
 		cout << "File does not exist!" << endl;
