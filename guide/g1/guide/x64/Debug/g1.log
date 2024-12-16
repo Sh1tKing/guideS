@@ -2,13 +2,19 @@
 E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(13,16): warning C4091: “typedef ”: 没有声明变量时忽略“each_site”的左侧
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(170,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(212,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(170,37): warning C4101: “m”: 未引用的局部变量
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(212,37): warning C4101: “m”: 未引用的局部变量
   (编译源文件“start.cpp”)
   
-E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(198,54): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(241,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(241,34): warning C4101: “m”: 未引用的局部变量
+  (编译源文件“start.cpp”)
+  
+E:\project_file\景区导游系统\guide\g1\find_shortest_way.cpp(277,54): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“start.cpp”)
   
 E:\project_file\景区导游系统\guide\g1\file_operate.cpp(14,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据

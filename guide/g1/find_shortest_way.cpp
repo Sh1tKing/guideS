@@ -90,6 +90,7 @@ void init_basic_map() {
     }
     
 }
+
 vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, vector<int>& previous) {
     vector<int> dist(n, INT_MAX);    
     vector<bool> visited(n, false); 
@@ -166,14 +167,59 @@ int calculateShortestPath(int n, vector<vector<each_site>>& graph, int start, in
 
     return totalCost;
 }
-void search() {
+struct toilet_rank {
+    string path;
+    int distance;
+};
+toilet_rank calculateShortestPath_toilet(int n, vector<vector<each_site>>& graph, int start, int end, const vector<int>& mustVisit) {
+    vector<int> totalPath;
+    int totalCost = 0;
+    vector<int> previous(n, -1);
+    int prevNode = start;
+    for (int i = 0; i < mustVisit.size(); ++i) {
+        vector<int> dist = dijkstra(n, graph, prevNode, previous);
+        if (dist[mustVisit[i]] == INT_MAX) {
+            cout << "无法到达必经点！" << endl;
+            return {};
+        }
+        totalCost += dist[mustVisit[i]];
+        vector<int> path = getPath(prevNode, mustVisit[i], previous);
+        if (i > 0) path.erase(path.begin());
+        totalPath.insert(totalPath.end(), path.begin(), path.end());
+        prevNode = mustVisit[i];
+    }
+    vector<int> dist = dijkstra(n, graph, prevNode, previous);
+    if (dist[end] == INT_MAX) {
+        cout << "无法到达终点！" << endl;
+        return {};
+    }
+    totalCost += dist[end];
+    vector<int> path = getPath(prevNode, end, previous);
+    path.erase(path.begin());
+    totalPath.insert(totalPath.end(), path.begin(), path.end());
+    string toilet_path;
+    if (graph[totalPath[0]][totalPath[0]].name != graph[start][start].name) toilet_path =graph[start][start].name +"->";
+    for (int i = 0; i < totalPath.size(); i++) {
+        toilet_path += graph[totalPath[i]][totalPath[i]].name;
+        if (i < totalPath.size() - 1) toilet_path += "->";
+    }
+    toilet_rank tmp;
+    tmp.distance = totalCost;
+    tmp.path = toilet_path;
+    return tmp;
+}
+void search_routine() {
     int n=mymap.size(), start, end, m;
     system("cls");
     int mustVisitCount;
-    cout << "请输入起点和终点:" << endl;
-    cin >> start >> end;
-
-    cout << "请输入必须经过的点数:" << endl;
+    for (int i = 0; i < graph.size(); i++) {
+        cout << i << "  " << graph[i][i].name << endl;
+    }
+    cout << "请输入当前所在位置的编号:" << endl;
+    cin >> start;
+    cout << "请输入目的地的编号:" << endl;
+    cin >> end;
+    cout << "请输入要途径的园区个数（没有，请输入0）:" << endl;
     cin >> mustVisitCount;
 
     vector<int> mustVisit(mustVisitCount);
@@ -182,10 +228,43 @@ void search() {
     }
     int result = calculateShortestPath(n, graph, start, end, mustVisit);
     if (result != -1) {
-        cout << "最短用时: " << result << endl;
+        cout << "最短距离约：: " << result << "m"<<endl;
     }
     system("pause");
     system("cls");
+}
+void search_toilet() {
+    for (int i = 0; i < graph.size(); i++) {
+        cout << i << "  " << graph[i][i].name << endl;
+    }
+    cout << "请输入当前所在位置" << endl;
+    int n = graph.size(), start, m;
+    cin >> start;
+    if (graph[start][start].toilet == 1) {
+        cout << "当前园区配备卫生间" << endl;
+        system("pause");
+        system("cls");
+        return;
+    }
+    int min_num = 99999;
+    vector<toilet_rank> px;
+    for (int i = 0; i < graph.size(); i++) {
+        if (graph[i][i].toilet == 1) {
+            toilet_rank result = calculateShortestPath_toilet(n, graph, start, i, {});
+            px.push_back(result);
+        }
+    }
+    for (int i = 0; i < px.size() - 1; i++) {
+        for (int j = 0; j < px.size() - i - 1; j++) {
+            if (px[j].distance > px[j + 1].distance) swap(px[j], px[j + 1]);
+        }
+    }
+    for (auto i : px) {
+        cout << i.path << " ||| " << i.distance << "m" << endl;
+    }
+    system("pause");
+    system("cls");
+
 }
 void findway_menu() {
     system("cls");
@@ -197,19 +276,19 @@ void findway_menu() {
     while (choice != 3) {
         int result = calculateShortestPath(mymap.size(), graph, 27, 27, mustVisit);
         if (result != -1) {
-            cout << endl << "最短用时: " << result << endl << endl;
+            cout << endl << "最短距离约：: " << result << "m" << endl << endl;
         }
         cout << "1.搜索路线" << endl;
-        cout << "2.搜索最近的洗手间" << endl;
+        cout << "2.搜索附近的洗手间" << endl;
         cout << "3.返回" << endl;
         cin >> choice;
         switch (choice) {
         case 1: {
-            search();
+            search_routine();
             break;
         }
         case 2: {
-           
+            search_toilet();
             break;
         }
         case 3: {
