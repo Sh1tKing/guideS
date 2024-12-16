@@ -73,17 +73,20 @@ vector<each_site> csv_read2() {
 			words.clear();
 			sin.clear();
 			sin.str(line);
-			bool tmp1 = 0;
+			bool tmp1 = 0, tmp2 = 0;
 			while (getline(sin, word, ','))
 			{
 				words.push_back(word);
 			}
 			istringstream Tmp1(words[1]);
 			Tmp1 >> tmp1;
+			istringstream Tmp2(words[2]);
+			Tmp2 >> tmp2;
 			each_site tmp;
 			tmp.distance = 0;
 			tmp.name = words[0];
 			tmp.toilet = tmp1;
+			tmp.isopen=tmp2;
 			data.push_back(tmp);
 		}
 		csv_data.close();

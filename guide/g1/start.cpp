@@ -6,6 +6,7 @@ int main() {
 	int choice = -1;
 	csv_read1();
 	init_map();
+	init_basic_map();
 	while (choice != 4) {
 		system("cls");
 		system_menu.main_menu();
@@ -16,7 +17,7 @@ int main() {
 				break;
 			}
 			case 2: {
-				check_menu();
+				findway_menu();
 				break;
 			}
 			case 3: {

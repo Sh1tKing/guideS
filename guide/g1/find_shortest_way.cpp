@@ -14,10 +14,12 @@ typedef struct each_site {
     bool toilet;
     int distance = -1;
     string name;
+    bool isopen;
 };
 vector<each_site> csv_read2();
 vector<vector<int>> mymap;
-int my_map[30][30] = {
+
+int basic_map[30][30] = {
 {0, 150, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 300, -1, -1, -1},
 { 150,0,220,-1,-1,-1,-1,-1,-1,-1,-1,-1,180,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 },
 { -1,200,0,142,-1,-1,-1,-1,-1,-1,-1,-1,50,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 },
@@ -61,10 +63,32 @@ void init_map() {
 	for (int i = 0; i < 30; i++) {
 		vector<int> tmp;
 		for (int j = 0; j < 30; j++) {
-			tmp.push_back(my_map[i][j]);
+			tmp.push_back(basic_map[i][j]);
 		}
 		mymap.push_back(tmp);
 	}
+    
+}
+vector<each_site> sdata;
+vector<vector<each_site>> graph;
+void init_basic_map() {
+    vector<each_site> sdata1 = csv_read2();
+    vector<vector<each_site>> graph1(mymap.size(), vector<each_site>(mymap.size()));
+    sdata = sdata1;
+    graph = graph1;
+    for (int i = 0; i < mymap.size(); ++i) {
+        graph[i][i].name = sdata[i].name;
+        graph[i][i].toilet = sdata[i].toilet;
+        graph[i][i].isopen = sdata[i].isopen;
+    }
+
+    for (int i = 0; i < mymap.size(); ++i) {
+        for (int j = 0; j < mymap.size(); ++j) {
+            graph[i][j].distance = mymap[i][j];
+           
+        }
+    }
+    
 }
 vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, vector<int>& previous) {
     vector<int> dist(n, INT_MAX);    
@@ -84,7 +108,7 @@ vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, v
 
 
         for (int v = 0; v < n; ++v) {
-            if (!visited[v] && graph[u][v].distance != -1 && dist[u] + graph[u][v].distance < dist[v]) {
+            if (!visited[v] && graph[u][v].distance != -1 && dist[u] + graph[u][v].distance < dist[v] && graph[v][v].isopen==1) {
                 dist[v] = dist[u] + graph[u][v].distance;
                 pq.push({ dist[v], v });
                 previous[v] = u; 
@@ -133,9 +157,6 @@ int calculateShortestPath(int n, vector<vector<each_site>>& graph, int start, in
     vector<int> path = getPath(prevNode, end, previous); 
     path.erase(path.begin());  
     totalPath.insert(totalPath.end(), path.begin(), path.end()); 
-
-
-    cout << "最短路径经过的点：";
     if (graph[totalPath[0]][totalPath[0]].name != graph[start][start].name) cout << graph[start][start].name << "->";
     for (int i = 0; i < totalPath.size();i++) {
         cout << graph[totalPath[i]][totalPath[i]].name;
@@ -145,24 +166,9 @@ int calculateShortestPath(int n, vector<vector<each_site>>& graph, int start, in
 
     return totalCost;
 }
-void check_menu() {
+void search() {
     int n=mymap.size(), start, end, m;
-
-    
-    vector<each_site> sdata = csv_read2();
-
-    vector<vector<each_site>> graph(n, vector<each_site>(n));
-    for (int i = 0; i < n; ++i) {
-        graph[i][i].name = sdata[i].name;
-        graph[i][i].toilet = sdata[i].toilet;
-    }
-
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            graph[i][j].distance = mymap[i][j];
-        }
-    }
-
+    system("cls");
     int mustVisitCount;
     cout << "请输入起点和终点:" << endl;
     cin >> start >> end;
@@ -171,7 +177,6 @@ void check_menu() {
     cin >> mustVisitCount;
 
     vector<int> mustVisit(mustVisitCount);
-    cout << "请输入必须经过的点:" << endl;
     for (int i = 0; i < mustVisitCount; ++i) {
         cin >> mustVisit[i];
     }
@@ -179,6 +184,38 @@ void check_menu() {
     if (result != -1) {
         cout << "最短用时: " << result << endl;
     }
-
     system("pause");
+    system("cls");
+}
+void findway_menu() {
+    system("cls");
+    cout << "下面是推荐路线" << endl << endl;
+    vector<int> mustVisit(6);
+    mustVisit = { 11,4,12,13,16 };
+   
+    int choice = -1;
+    while (choice != 3) {
+        int result = calculateShortestPath(mymap.size(), graph, 27, 27, mustVisit);
+        if (result != -1) {
+            cout << endl << "最短用时: " << result << endl << endl;
+        }
+        cout << "1.搜索路线" << endl;
+        cout << "2.搜索最近的洗手间" << endl;
+        cout << "3.返回" << endl;
+        cin >> choice;
+        switch (choice) {
+        case 1: {
+            search();
+            break;
+        }
+        case 2: {
+           
+            break;
+        }
+        case 3: {
+            return;
+            break;
+        }
+        }
+    }
 }
