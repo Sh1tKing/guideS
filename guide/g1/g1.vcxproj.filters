@@ -29,7 +29,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scene.h">
+    <ClInclude Include="site.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="menu.h">

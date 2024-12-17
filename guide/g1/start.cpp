@@ -1,10 +1,11 @@
-#include"scene.h"
+#include"site.h"
 #include"find_shortest_way.cpp"
 #include"admin_operation.cpp"
 #include"menu.h"
 int main() {
 	int choice = -1;
-	csv_read1();
+	csv_read_mysite();
+	csv_read_site();
 	init_map();
 	init_basic_map();
 	while (choice != 4) {
@@ -13,7 +14,7 @@ int main() {
 		cin >> choice;
 		switch (choice) {
 			case 1: {
-				
+				search_menu();
 				break;
 			}
 			case 2: {
@@ -25,7 +26,6 @@ int main() {
 				break;
 			}
 			case 4: {
-				if (myscene_size != myscene.size()) csv_writeall();
 				exit(0);
 				break;
 			}
