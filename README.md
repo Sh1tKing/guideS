@@ -1,14 +1,10 @@
 ### 类scene：
 
-景点名字（scene_name）
+景点名字（name）
 
-景点门票（ticket）
+是否配备卫生间 (toilet)
 
-建议游玩时间（tour_time）
-
-当前游玩人数（present_num）
-
-开放时间（open_time）
+是否开放（isopen）
 
 
 
@@ -39,4 +35,8 @@
 #### 
 
 #### 存储：
+
+邻接矩阵
+
+
 
