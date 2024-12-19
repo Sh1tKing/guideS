@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\find_shortest_way.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:find_shortest_way.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\admin_operation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:admin_operation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\file_operate.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:file_operate.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -23,8 +15,16 @@
       "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:site.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\find_shortest_way.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:find_shortest_way.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\admin_operation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{55B0474E-CF48-48E1-8C58-CD24200E15E7}|g1.vcxproj|solutionrelative:admin_operation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,20 +70,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "admin_operation.cpp",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\admin_operation.cpp",
               "RelativeDocumentMoniker": "admin_operation.cpp",
               "ToolTip": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\admin_operation.cpp",
               "RelativeToolTip": "admin_operation.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAALcAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-12T05:10:12.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T05:10:12.942Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "menu.h",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\menu.h",
               "RelativeDocumentMoniker": "menu.h",
@@ -95,33 +94,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "file_operate.cpp",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\file_operate.cpp",
               "RelativeDocumentMoniker": "file_operate.cpp",
               "ToolTip": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\file_operate.cpp",
               "RelativeToolTip": "file_operate.cpp",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAqwN0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwN0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-10T05:19:57.146Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "find_shortest_way.cpp",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\find_shortest_way.cpp",
               "RelativeDocumentMoniker": "find_shortest_way.cpp",
               "ToolTip": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\find_shortest_way.cpp",
               "RelativeToolTip": "find_shortest_way.cpp",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAWwMkAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAABAAAAAAAAAAAWwMkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-09T15:10:16.535Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T15:10:16.535Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "site.h",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\site.h",
               "RelativeDocumentMoniker": "site.h",
@@ -133,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "start.cpp",
               "DocumentMoniker": "E:\\project_file\\\u666F\u533A\u5BFC\u6E38\u7CFB\u7EDF\\guide\\g1\\start.cpp",
               "RelativeDocumentMoniker": "start.cpp",
