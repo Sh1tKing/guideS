@@ -4,7 +4,6 @@
 #include<windows.h>
 #include"file_operate.cpp"
 using namespace std;
-menu system_menu;
 void search_menu() {
 	int code = 0;
 

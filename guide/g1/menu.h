@@ -8,7 +8,18 @@ public:
 	void admin_operate_menu(int opt);
 	void search_menu(int opt);
 	void login_menu(int opt);
+	void find_short_way_menu(int opt);
 };
+void menu::find_short_way_menu(int opt) {
+	cout << "---------------------" << endl;
+	if (opt == 1) cout << "  -> 1.搜索路线" << endl;
+	else cout << "     1.搜索路线" << endl;
+	if (opt == 2) cout << "  -> 2.搜索附近的洗手间" << endl;
+	else cout << "     2.搜索附近的洗手间" << endl;
+	if (opt == 3) cout << "  -> 3.返回" << endl;
+	else cout << "     3.返回" << endl;
+	cout << "---------------------" << endl;
+}
 void menu::login_menu(int opt) {
 	cout << "--华南植物园导游系统-- " << endl;
 	cout << "---------------------" << endl;
@@ -68,3 +79,4 @@ void menu::search_menu(int opt) {
 	else cout << "     3.返回" << endl;
 	cout << "---------------------" << endl;
 }
+menu system_menu;

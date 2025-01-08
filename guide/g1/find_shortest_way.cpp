@@ -20,16 +20,7 @@ typedef struct each_site {
     bool isopen;
 };
 
-void find_short_way_menu(int opt) {
-    cout << "---------------------" << endl;
-    if (opt == 1) cout << "  -> 1.搜索路线" << endl;
-    else cout << "     1.搜索路线" << endl;
-    if (opt == 2) cout << "  -> 2.搜索附近的洗手间" << endl;
-    else cout << "     2.搜索附近的洗手间" << endl;
-    if (opt == 3) cout << "  -> 3.返回" << endl;
-    else cout << "     3.返回" << endl;
-    cout << "---------------------" << endl;
-}
+
 vector<each_site> csv_read_site();
 vector<vector<int>> csv_read_map();
 vector<vector<int>> mymap;
@@ -286,7 +277,7 @@ void findway_menu() {
             cout << endl << "最短距离约：: " << result << "m" << endl << endl;
         }
         int opt = 1;
-        find_short_way_menu(opt);
+        system_menu.find_short_way_menu(opt);
         while (1) {
             if (_kbhit()) {
                 int v = _getch();
@@ -298,7 +289,7 @@ void findway_menu() {
                     if (result != -1) {
                         cout << endl << "最短距离约：: " << result << "m" << endl << endl;
                     }
-                    find_short_way_menu(opt);
+                    system_menu.find_short_way_menu(opt);
                 }
                 else if (v == 80) {
                     if (opt != 3) opt++;
@@ -308,7 +299,7 @@ void findway_menu() {
                     if (result != -1) {
                         cout << endl << "最短距离约：: " << result << "m" << endl << endl;
                     }
-                    find_short_way_menu(opt);
+                    system_menu.find_short_way_menu(opt);
                 }
                 else if (v == 13) {
                     choice = opt;
