@@ -12,8 +12,8 @@ public:
 void menu::login_menu(int opt) {
 	cout << "--华南植物园导游系统--" << endl;
 	cout << "---------------------" << endl;
-	if (opt == 1) cout << "  -> 1.游客登陆" << endl;
-	else cout << "     1.游客登陆" << endl;
+	if (opt == 1) cout << "  -> 1.游客进入" << endl;
+	else cout << "     1.游客进入" << endl;
 	if (opt == 2) cout << "  -> 2.管理员登录" << endl;
 	else cout << "     2.管理员登录" << endl;
 	if (opt == 3) cout << "  -> 3.退出系统" << endl;
