@@ -198,14 +198,20 @@ void search_routine() {
         system("pause");
         return;
     }
+	if (start == end) {
+		cout << "已经在目的地" << endl;
+		system("pause");
+		return;
+	}
     cout << "请输入要途径的园区个数（没有，请输入0）:" << endl;
     cin >> mustVisitCount;
     if (mustVisitCount<0 || mustVisitCount>graph.size()-1) {
-        cout << "数量过多" << endl;
+        cout << "输入错误" << endl;
         system("pause");
         return;
     }
     vector<int> mustVisit(mustVisitCount);
+	cout << "请依次输入要途径的园区编号:" << endl;
     for (int i = 0; i < mustVisitCount; ++i) {
         cin >> mustVisit[i];
         if (mustVisit[i]<0 || mustVisit[i]>graph.size() - 1) {

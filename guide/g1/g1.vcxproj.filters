@@ -21,10 +21,13 @@
     <ClCompile Include="find_shortest_way.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="file_operate.cpp">
+    <ClCompile Include="admin_operation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="admin_operation.cpp">
+    <ClCompile Include="login.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="file_operate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

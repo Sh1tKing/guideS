@@ -44,7 +44,7 @@ bool csv_read_mysite() {
 			Tmp1 >> tmp1;
 			istringstream Tmp2(words[2]);
 			Tmp2 >> tmp2;
-			site tmp(words[0],tmp1,tmp2);
+			site tmp(words[0], tmp1, tmp2);
 			mysite.push_back(tmp);
 		}
 		csv_data.close();
@@ -101,7 +101,7 @@ vector<each_site> csv_read_site() {
 			tmp.distance = 0;
 			tmp.name = words[0];
 			tmp.toilet = tmp1;
-			tmp.isopen=tmp2;
+			tmp.isopen = tmp2;
 			data.push_back(tmp);
 		}
 		csv_data.close();
@@ -135,7 +135,7 @@ vector<vector<int>> csv_read_map() {
 				Tmp1 >> tmp1;
 				words.push_back(tmp1);
 			}
-			
+
 			data.push_back(words);
 		}
 		csv_data.close();
@@ -185,7 +185,7 @@ bool csv_situation_add(string name, bool toilet, bool isopen) {
 bool csv_map_add(vector<relate_site>& relate) {
 	if (relate.size() == 0) return false;
 	int new_size = mymap.size();
-	vector<int> new_site(mymap.size(),-1);
+	vector<int> new_site(mymap.size(), -1);
 	new_site.push_back(0);
 	for (int i = 0; i < mymap.size(); i++) {
 		mymap[i].push_back(-1);
@@ -203,14 +203,14 @@ bool csv_situation_delete(int number) {
 	return true;
 }
 bool csv_map_delete(int number) {
-	for(int i=0;i<mymap.size();i++){
-		mymap[i].erase(mymap[i].begin()+number);
+	for (int i = 0; i < mymap.size(); i++) {
+		mymap[i].erase(mymap[i].begin() + number);
 	}
 	mymap.erase(mymap.begin() + number);
 	return true;
 }
 //modify
-bool csv_situation_modify(string name,int number) {
+bool csv_situation_modify(string name, int number) {
 	if (number<0 || number>mysite.size()) return false;
 	mysite[number].SetName(name);
 	graph[number][number].name = name;
@@ -222,7 +222,7 @@ bool csv_situation_modify(bool toilet, int number) {
 	graph[number][number].toilet = toilet;
 	return true;
 }
-bool csv_situation_modify(int number,bool isopen) {
+bool csv_situation_modify(int number, bool isopen) {
 	if (number<0 || number>mysite.size()) return false;
 	mysite[number].SetIsopen(isopen);
 	graph[number][number].isopen = isopen;
