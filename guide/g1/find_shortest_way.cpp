@@ -260,7 +260,10 @@ void search_toilet() {
             if (px[j].distance > px[j + 1].distance) swap(px[j], px[j + 1]);
         }
     }
+    int time = 0;
     for (auto i : px) {
+		if (time == 3) break;
+        time++;
         cout << i.path << " ||| " << i.distance << "m" << endl;
     }
     system("pause");
