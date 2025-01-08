@@ -8,6 +8,7 @@ public:
 	void search_menu(int opt);
 };
 void menu::main_menu(int opt) {
+	cout << "--华南植物园导游系统--" << endl;
 	cout << "---------------------" << endl;
 	if (opt == 1) cout << "  -> 1.查看景点"<<endl;
 	else cout << "     1.查看景点" << endl;
@@ -20,6 +21,7 @@ void menu::main_menu(int opt) {
 	cout << "---------------------" << endl;
 }
 void menu::admin_operate_menu(int opt) {
+	cout << "--华南植物园导游系统--" << endl;
 	cout << "---------------------" << endl;
 	if (opt == 1) cout << "  -> 1.添加景点" << endl;
 	else cout << "     1.添加景点" << endl;
@@ -32,6 +34,7 @@ void menu::admin_operate_menu(int opt) {
 	cout << "---------------------" << endl;
 }
 void menu::search_menu(int opt) {
+	cout << "--华南植物园导游系统--" << endl;
 	cout << "---------------------" << endl;
 	if (opt == 1) cout << "  -> 1.查看指定园区" << endl;
 	else cout << "     1.查看指定园区" << endl;
