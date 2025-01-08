@@ -8,7 +8,7 @@ public:
 	void search_menu(int opt);
 };
 void menu::main_menu(int opt) {
-	cout << "--华南植物园导游系统--" << endl;
+	cout << "--华南植物园导游系统-- " << endl;
 	cout << "---------------------" << endl;
 	if (opt == 1) cout << "  -> 1.查看景点"<<endl;
 	else cout << "     1.查看景点" << endl;
