@@ -1,5 +1,7 @@
 #include"menu.h"
 #include"site.h"
+#include<conio.h>
+#include<windows.h>
 #include"file_operate.cpp"
 using namespace std;
 menu system_menu;
@@ -8,14 +10,33 @@ void search_menu() {
 	
 	while(code!=3){
 		system("cls");
-		cout << "1.查看指定园区" << endl;
-		cout << "2.查看所有园区" << endl;
-		cout << "3.返回" << endl;
-		cin >> code;
+		int opt = 1;
+		system_menu.search_menu(opt);
+		while (1) {
+			if (_kbhit()) {
+				int v = _getch();
+				if (v == 72) {
+					if (opt != 1) opt--;
+					system("cls");
+					system_menu.search_menu(opt);
+				}
+				else if (v == 80) {
+					if (opt != 3) opt++;
+					system("cls");
+					system_menu.search_menu(opt);
+				}
+				else if (v == 13) {
+					code = opt;
+					break;
+				}
+				else continue;
+			}
+		}
 		if (code == 1) {
 			for (int i = 0; i < mysite.size(); i++) {
 				cout << i << "  " << mysite[i].GetName() << endl;
 			}
+			cout << "---------------------" << endl;
 			cout << "输入要查看的编号" << endl;
 			int id;
 			cin >> id;
@@ -41,6 +62,7 @@ void search_menu() {
 }
 void add_site() {
 	string name; bool toilet; bool isopen;
+	cout << "---------------------" << endl;
 	cout << "请输入景点名字：" << endl;
 	cin >> name;
 	cout << "是否内设洗手间（1.是  0.否）" << endl;
@@ -82,6 +104,7 @@ void delete_site() {
 	for (int i = 0; i < graph.size(); i++) {
 		cout << i << "  " << graph[i][i].name << endl;
 	}
+	cout << "---------------------" << endl;
 	cout << "请输入要删除的景点编号：" << endl;
 	int id;
 	cin >> id;
@@ -103,6 +126,7 @@ void modify_site() {
 	for (int i = 0; i < mysite.size(); i++) {
 		cout << i << "  " << mysite[i].GetName() << endl;
 	}
+	cout << "---------------------" << endl;
 	cout << "请输入要修改的景点编号：" << endl;
 
 	cin >> id;
@@ -171,10 +195,29 @@ void modify_site() {
 void admin_menu() {
 	int choice = -1;
 	while (choice != 4) {
-		system("cls"); 
-		system_menu.admin_operate_menu();
-		cin.clear();
-		cin >> choice;
+		system("cls");
+		int opt = 1;
+		system_menu.admin_operate_menu(opt);
+		while (1) {
+			if (_kbhit()) {
+				int v = _getch();
+				if (v == 72) {
+					if (opt != 1) opt--;
+					system("cls");
+					system_menu.admin_operate_menu(opt);
+				}
+				else if (v == 80) {
+					if (opt != 4) opt++;
+					system("cls");
+					system_menu.admin_operate_menu(opt);
+				}
+				else if (v == 13) {
+					choice = opt;
+					break;
+				}
+				else continue;
+			}
+		}
 		switch (choice) {
 		case 1: {
 			add_site();

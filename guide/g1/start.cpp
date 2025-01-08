@@ -2,6 +2,9 @@
 #include"find_shortest_way.cpp"
 #include"admin_operation.cpp"
 #include"menu.h"
+#include<conio.h>
+#include<windows.h>
+
 int main() {
 	int choice = -1;
 	csv_read_mysite();
@@ -10,8 +13,28 @@ int main() {
 	init_basic_map();
 	while (choice != 4) {
 		system("cls");
-		system_menu.main_menu();
-		cin >> choice;
+		int opt = 1;
+		system_menu.main_menu(opt);
+		while (1) {
+			if (_kbhit()) {
+				int v = _getch();
+				if (v == 72) {
+					if (opt != 1) opt--;
+					system("cls");
+					system_menu.main_menu(opt);
+				}
+				else if (v == 80) {
+					if (opt != 4) opt++;
+					system("cls");
+					system_menu.main_menu(opt);
+				}
+				else if (v == 13) {
+					choice = opt;
+					break;
+				}
+				else continue;
+			}
+		}
 		switch (choice) {
 			case 1: {
 				search_menu();

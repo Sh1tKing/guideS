@@ -7,6 +7,9 @@
 #include <unordered_set>
 #include<iostream>
 #include <climits>
+#include<conio.h>
+#include<windows.h>
+#include"menu.h"
 #define MAX_NUM 100
 #define INF 
 //vector<vector<int>> mymap(MAX_NUM, vector<int>(MAX_NUM));
@@ -16,6 +19,17 @@ typedef struct each_site {
     string name;
     bool isopen;
 };
+
+void find_short_way_menu(int opt) {
+    cout << "---------------------" << endl;
+    if (opt == 1) cout << "  -> 1.搜索路线" << endl;
+    else cout << "     1.搜索路线" << endl;
+    if (opt == 2) cout << "  -> 2.搜索附近的洗手间" << endl;
+    else cout << "     2.搜索附近的洗手间" << endl;
+    if (opt == 3) cout << "  -> 3.返回" << endl;
+    else cout << "     3.返回" << endl;
+    cout << "---------------------" << endl;
+}
 vector<each_site> csv_read_site();
 vector<vector<int>> csv_read_map();
 vector<vector<int>> mymap;
@@ -169,6 +183,7 @@ void search_routine() {
     for (int i = 0; i < graph.size(); i++) {
         cout << i << "  " << graph[i][i].name << endl;
     }
+
     cout << "请输入当前所在位置的编号:" << endl;
     cin >> start;
     if (start<0 || start>graph.size()-1) {
@@ -210,6 +225,7 @@ void search_toilet() {
     for (int i = 0; i < graph.size(); i++) {
         cout << i << "  " << graph[i][i].name << endl;
     }
+    cout << "---------------------" << endl;
     cout << "请输入当前所在位置" << endl;
     int n = graph.size(), start, m;
     cin >> start;
@@ -260,10 +276,38 @@ void findway_menu() {
         if (result != -1) {
             cout << endl << "最短距离约：: " << result << "m" << endl << endl;
         }
-        cout << "1.搜索路线" << endl;
-        cout << "2.搜索附近的洗手间" << endl;
-        cout << "3.返回" << endl;
-        cin >> choice;
+        int opt = 1;
+        find_short_way_menu(opt);
+        while (1) {
+            if (_kbhit()) {
+                int v = _getch();
+                if (v == 72) {
+                    if (opt != 1) opt--;
+                    system("cls");
+                    cout << "下面是推荐路线" << endl << endl;
+                    int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
+                    if (result != -1) {
+                        cout << endl << "最短距离约：: " << result << "m" << endl << endl;
+                    }
+                    find_short_way_menu(opt);
+                }
+                else if (v == 80) {
+                    if (opt != 3) opt++;
+                    system("cls");
+                    cout << "下面是推荐路线" << endl << endl;
+                    int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
+                    if (result != -1) {
+                        cout << endl << "最短距离约：: " << result << "m" << endl << endl;
+                    }
+                    find_short_way_menu(opt);
+                }
+                else if (v == 13) {
+                    choice = opt;
+                    break;
+                }
+                else continue;
+            }
+        }
         switch (choice) {
         case 1: {
             search_routine();
