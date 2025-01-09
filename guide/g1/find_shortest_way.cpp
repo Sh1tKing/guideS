@@ -19,14 +19,11 @@ typedef struct each_site {
     string name;
     bool isopen;
 };
-
-
 vector<each_site> csv_read_site();
 vector<vector<int>> csv_read_map();
 vector<vector<int>> mymap;
 void init_map() {
-    mymap = csv_read_map();
-    
+    mymap = csv_read_map();  
 }
 vector<each_site> sdata;
 vector<vector<each_site>> graph;
@@ -76,7 +73,43 @@ vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, v
     }
     return dist;
 }
-
+void prim(const vector<vector<each_site>>& graph, int start) {
+    vector<int> visit(graph.size(), 0);
+    visit[start] = 1;
+    vector<each_site> sval(graph.size());
+    vector<each_site> spre(graph.size());
+    int min_lo = -1, min_prop = 0;
+    for (int i = 0; i < graph.size(); i++) {
+        sval[i].distance = graph[start][i].distance;
+        spre[i].distance = start;
+        spre[i].name= graph[start][start].name;
+    }
+    spre[start].name = graph[start][start].name;
+    for (int i = 0; i < graph.size() - 1; i++) {
+        int min_val = 999999;
+        for (int j = 0; j < graph.size(); j++) {
+            if (sval[j].distance != -1 && visit[j] != 1) {
+                if (sval[j].distance < min_val) {
+                    min_val = sval[j].distance;
+                    min_lo = j;
+                }
+            }
+        }
+        visit[min_lo] = 1;
+        min_prop += min_val;
+        for (int k = 0; k < graph.size(); k++) {
+            if ((graph[min_lo][k].distance < sval[k].distance && graph[min_lo][k].distance != -1) || (graph[min_lo][k].distance != -1 && sval[k].distance == -1)) {
+                if (graph[min_lo][k].distance != 0) sval[k].distance = graph[min_lo][k].distance;
+                if (k != min_lo) {
+                    spre[k].distance = min_lo;
+                    spre[k].name = graph[min_lo][min_lo].name;
+                }
+            }
+        }
+        cout << spre[min_lo].name << "->" << graph[min_lo][min_lo].name << endl;
+    }
+    cout << min_prop << endl;
+}
 vector<int> getPath(int start, int end, const vector<int>& previous) {
     vector<int> path;
     for (int at = end; at != -1; at = previous[at]) {
@@ -271,10 +304,12 @@ void findway_menu() {
     while (choice != 3) {
         system("cls");
         cout << "下面是推荐路线" << endl << endl;
-        int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
+        //最小生成树算法
+        prim(graph,27);
+        /*int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
         if (result != -1) {
             cout << endl << "最短距离约：: " << result << "m" << endl << endl;
-        }
+        }*/
         int opt = 1;
         system_menu.find_short_way_menu(opt);
         while (1) {

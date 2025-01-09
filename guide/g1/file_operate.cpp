@@ -199,14 +199,37 @@ bool csv_map_add(vector<relate_site>& relate) {
 }
 bool csv_situation_delete(int number) {
 	if (number<0 || number>mysite.size()) return false;
-	mysite.erase(mysite.begin() + number);
+	//mysite.erase(mysite.begin() + number);
+	if (number == mysite.size() - 1) mysite.pop_back();
+	else {
+		for (int i = number, j = number + 1; j != mysite.size(); i++, j++) {
+			mysite[i].SetName(mysite[j].GetName());
+			mysite[i].SetIsopen(mysite[j].GetIsopen());
+			mysite[i].SetToilet(mysite[j].GetToilet());
+		}
+		mysite.pop_back();
+	}
 	return true;
 }
 bool csv_map_delete(int number) {
-	for (int i = 0; i < mymap.size(); i++) {
-		mymap[i].erase(mymap[i].begin() + number);
+	if (number == mymap.size() - 1) {
+		for (int i = 0; i < number; i++) {
+			mymap[i].pop_back();
+		}
+		mymap.pop_back();
 	}
-	mymap.erase(mymap.begin() + number);
+	else {
+		for (int k = 0; k < mymap.size(); k++) {
+			for (int i = number, j = number + 1; j != mysite.size(); i++, j++) {
+				mymap[k][i] = mymap[k][j];
+			}
+			mymap[k].pop_back();
+		}
+		for (int i = number, j = number + 1; j != mymap.size(); i++, j++) {
+			mymap[i] = mymap[j];
+		}
+		mymap.pop_back();
+	}
 	return true;
 }
 //modify
