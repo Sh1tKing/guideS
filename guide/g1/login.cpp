@@ -1,5 +1,5 @@
-
 #include"menu.h"
+#include<conio.h>
 bool check_password() {
 	string account, password;	
 	cout << "请输入账号："<<endl;
