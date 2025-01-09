@@ -54,7 +54,6 @@ vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, v
     vector<int> dist(n, INT_MAX);    
     vector<bool> visited(n, false); 
     dist[start] = 0; 
-
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({ 0, start });  
     fill(previous.begin(), previous.end(), -1);
@@ -75,7 +74,6 @@ vector<int> dijkstra(int n, const vector<vector<each_site>>& graph, int start, v
             }
         }
     }
-
     return dist;
 }
 
@@ -100,6 +98,7 @@ int calculateShortestPath(int n, vector<vector<each_site>>& graph, int start, in
         vector<int> dist = dijkstra(n, graph, prevNode, previous);
         if (dist[mustVisit[i]] == INT_MAX) {
             cout << "无法到达必经点！" << endl;
+            system("cls");
             return -1;
         }
         totalCost += dist[mustVisit[i]];  
