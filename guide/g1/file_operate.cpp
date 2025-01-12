@@ -89,7 +89,7 @@ vector<each_site> csv_read_site() {
 			sin.clear();
 			sin.str(line);
 			bool tmp1 = 0, tmp2 = 0;
-			while (getline(sin, word, ','))
+			while (getline(sin, word, ',')) 
 			{
 				words.push_back(word);
 			}
