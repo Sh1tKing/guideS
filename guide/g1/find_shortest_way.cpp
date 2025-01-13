@@ -319,20 +319,15 @@ void findway_menu() {
                     if (opt != 1) opt--;
                     system("cls");
                     cout << "下面是推荐路线" << endl << endl;
-                    int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
-                    if (result != -1) {
-                        cout << endl << "最短距离约：: " << result << "m" << endl << endl;
-                    }
+                    prim(graph, 27);
+                   
                     system_menu.find_short_way_menu(opt);
                 }
                 else if (v == 80) {
                     if (opt != 3) opt++;
                     system("cls");
                     cout << "下面是推荐路线" << endl << endl;
-                    int result = calculateShortestPath(graph.size(), graph, 27, 27, mustVisit);
-                    if (result != -1) {
-                        cout << endl << "最短距离约：: " << result << "m" << endl << endl;
-                    }
+                    prim(graph, 27);
                     system_menu.find_short_way_menu(opt);
                 }
                 else if (v == 13) {
