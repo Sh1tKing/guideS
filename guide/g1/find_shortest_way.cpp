@@ -108,7 +108,7 @@ void prim(const vector<vector<each_site>>& graph, int start) {
         }
         cout << spre[min_lo].name << "->" << graph[min_lo][min_lo].name << endl;
     }
-    cout << min_prop << endl;
+    cout << min_prop <<"米"<< endl;
 }
 vector<int> getPath(int start, int end, const vector<int>& previous) {
     vector<int> path;
